@@ -1,8 +1,11 @@
+import oboeware.djangoware
+import oboeware.inst_pymongo
+
 DEBUG = True
 TEMPLATE_DEBUG = True
 
 ADMINS = (
-    ('Harry Marr', 'harry.marr@gmail.com'),
+    ('mongotest', 'dave@tracelytics.com'),
 )
 
 MANAGERS = ADMINS
