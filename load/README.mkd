@@ -1,0 +1,8 @@
+##mumblr-loadtest
+multi-mechanize load tests for mumblr
+
+###Running
+Requires multi-mechanize.  There's currently two tests:
+
+    $ multi-mechanize gen_posts
+    $ multi-mechanize read_blog
