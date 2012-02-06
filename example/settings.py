@@ -13,8 +13,8 @@ MANAGERS = ADMINS
 import os
 from local_settings import *
 
-TIME_ZONE = None
-LANGUAGE_CODE = 'en-us'
+TIME_ZONE = 'Europe/London'
+LANGUAGE_CODE = 'en-gb'
 USE_I18N = False
 
 MEDIA_ROOT = os.path.join(PROJECT_PATH, 'static')
