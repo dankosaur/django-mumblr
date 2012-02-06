@@ -32,7 +32,7 @@ def markup(text, small_headings=False, no_follow=True, escape=False,
             if scale_headings:
                 options.append('headerid(level=3, forceid=False)')
             text = markdown.markdown(text, options, safe_mode=safe_mode)
-    
+
     if small_headings:
         text = re.sub('<(/?h)[1-6]', '<\g<1>5', text)
 
@@ -75,8 +75,8 @@ class EntryType(Document):
     will be used as the content. To make the entry's title link somewhere other
     than the post, you may provide a :attr:`link_url` field.
 
-    New entry types should also specify a form to be used in the admin 
-    interface. This is done by creating a subclass of 
+    New entry types should also specify a form to be used in the admin
+    interface. This is done by creating a subclass of
     :class:`EntryType.AdminForm` (which must also be called AdminForm) as a
     class attribute.
     """
@@ -102,9 +102,6 @@ class EntryType(Document):
 
     @queryset_manager
     def live_entries(queryset):
-        cutoff_date = datetime.now().replace(hour=23, minute=59, second=59)
-        queryset(Q(expiry_date__gt=datetime.now()) | Q(expiry_date=None),
-                 published=True, publish_date__lte=cutoff_date)
         return queryset.order_by('-publish_date')
 
     @permalink
@@ -201,7 +198,7 @@ class EntryType(Document):
                     data['comments_expiry_date'] = None
 
             return data
-        
+
     @classmethod
     def register(cls, entry_type):
         """Register an EntryType subclass.
