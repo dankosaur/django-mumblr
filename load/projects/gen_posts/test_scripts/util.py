@@ -1,7 +1,7 @@
 import cookielib
 import mechanize
 import weakref
-from reddit_settings import *
+from mumblr_settings import *
 
 class UserPool(object):
     def __init__(self, size=MAX_THREADS, username=ADMIN_USERNAME):
@@ -59,11 +59,13 @@ def _init_browser():
     return cj,br
 
 def _login(br, u, p):
-    _ = br.open(BASE_URL)
+    _ = br.open(LOGIN_URL)
 
-    br.select_form(nr=1)
-    br.form['user'] = u
-    br.form['passwd'] = p
+    print LOGIN_URL
+
+    br.select_form(nr=0)
+    print br.form
+    br.form['username'] = u
+    br.form['password'] = p
     r = br.submit()
-    r.read()
     assert (r.code == 200), 'Bad HTTP Response'
